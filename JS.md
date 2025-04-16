@@ -208,7 +208,7 @@ console.log(a > b);
 
 Output:
 true
-<pre>
+</pre>
 
  - Logical Operators: && || !
 
