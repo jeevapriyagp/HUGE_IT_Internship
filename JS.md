@@ -257,11 +257,11 @@ Hello World
 **if statement**
  - **if** executes code based on some specific condition
 
- Syntax of if:
-  if(condtion)
+Syntax of if:
+<pre>if(condtion)
   {
     //block of code
-  }
+  }</pre>
 
  - **if** keyword checks the condition inside the parentheses (), if the condition is evaluated to true, the code inside { } is executed
  or if the condition is evaluated to false, the code inside { } is skipped
@@ -286,8 +286,8 @@ Enter a number: -1
 **else statement**
  - **else** keyword executes code when the condition specified in the preceding **if** statement evaluates to false
 
- Syntax of else:
-  if (condition) 
+Syntax of else:
+<pre>if (condition) 
   {
     // block of code
     // execute this if condition is true
@@ -296,7 +296,7 @@ Enter a number: -1
   {
     // block of code
     // execute this if condition is false
-  }
+  }</pre>
 
  - **if else** statement checks the condition and executes code,
     - if condition is true, the code inside if is executed and the code inside else is skipped
@@ -325,21 +325,21 @@ You are an adult
 **else if stament**
  - **else if** keyword is used to check multiple conditions
 
- Syntax of else if:
-  if (condition1) 
-  {
+Syntax of else if:
+<pre>if (condition1) 
+{
     // if body
-  }
+}
 
-  else if (condition2)
-  {
+else if (condition2)
+{
     // else if body
-  }
+}
 
-  else 
-  {
+else 
+{
     // else body
-  }
+}</pre>
 
 here, 
 - first, the condition in the if statement is checked, ff the condition evaluates to true, the body of if is executed, and the rest is skipped
@@ -371,8 +371,8 @@ Good rating!
 **nested if else statement**
  - if else statement inside another if else is called nested if else 
  
- Syntax of nested if else:
-  if(condition) // outer if
+Syntax of nested if else:
+<pre>if(condition) // outer if
   {
     //body of outer if
     if(condition) //inner if
@@ -387,7 +387,7 @@ Good rating!
   else
   {
     //body of outer else
-  }
+  }</pre>
 
 <pre>Example:
 let marks = 60;
@@ -418,22 +418,19 @@ Passed
 ### switch case statement
  - switch case statement executes different blocks of code based on the value of a given expression
 
- Syntax of switch case:
-  switch (expression) 
-  {
+Syntax of switch case:
+<pre>switch (expression) 
+{
     case value1:
         // code block to be executed if expression matches value1
         break;
-
     case value2:
         // code block to be executed if expression matches value2
         break;
-    .
-    .
-    .
+    ...
     default:
         // code block to be executed if expression doesn't match any case
-  }
+}</pre>
 
 here,
  - the switch statement first evaluates the expression
@@ -485,7 +482,371 @@ Tuesday
 
  `switch case is used in the task to find whether a number is positive or negative`
 
+---
 
+## DAY 3: 17.04.2025
 
+### Loops 
 
+### for loop
+ - **for** loop is used for iterating over a block of code a certain number of times or to iterate over the elements of an array
 
+syntax of for loop:
+<pre>for (initialExpression; condition; updateExpression) 
+{
+    // for loop body
+}</pre>
+
+here,
+- `initialExpression` - initializes a counter variable
+- `condition` - the condition to be evaluated, if true, the body of the for loop is executed
+- `updateExpression` - updates the value of initialExpression
+- once an iteration of the loop is completed, the condition is evaluated again, the process continues until the condition is false
+
+<pre>Example:
+for (let i = 1; i < 6; i++) 
+{
+    console.log(i);
+}
+
+Output:
+1
+2
+3
+4
+5
+</pre>
+
+### while loop
+ - while loop repeatedly executes a block of code as long as a specified condition is true
+
+syntax of while loop:
+<pre>while (condition) 
+{
+    // body of loop
+}</pre>
+
+here,
+- while loop first evaluates the condition inside ( )
+- if the condition evaluates to true, the code inside { } is executed
+- then, the condition is evaluated again
+- this process continues as long as the condition evaluates to true
+- if the condition evaluates to false, the loop stops
+
+<pre>Example:
+let i = 1;
+
+while (i < 4) 
+{
+    console.log(i);
+    i += 1;
+}
+
+Output:
+1
+2
+3
+</pre>
+
+### do while loop
+ -  do while loop executes a block of code once, then repeatedly executes it as long as the specified condition is true
+
+syntax of do while:
+<pre>do 
+{
+    // body of loop
+} while(condition);</pre>
+
+here,
+- do…while loop executes the code inside { }
+- then, it evaluates the condition inside ( )
+- if the condition evaluates to true, the code inside { } is executed again
+- this process continues as long as the condition evaluates to true
+- if the condition evaluates to false, the loop terminates
+
+<pre>Example:
+let i = 3;
+
+do 
+{
+    console.log(i);
+    i--;
+} while (i > 0);
+
+Output:
+3
+2
+1
+</pre>
+
+### break statement
+- break statement terminates the loop immediately when it's encountered
+
+<pre>Example:
+for (let i = 1; i <= 5; i++) 
+{    
+    if (i == 3) 
+    {
+        break; // breaks when 1=3
+    }
+
+    console.log(i);
+}
+
+Ouput:
+1
+2
+</pre>
+
+### continue statement
+- continue statement skips the current iteration of the loop and proceeds to the next iteration
+
+<pre>Example:
+for (let i = 1; i <= 5; i++) 
+{
+    if (i % 2 === 0) 
+    {
+        continue; // skip the iteration if i is even
+    }
+    console.log(i);
+}
+
+Output:
+1
+3
+5
+</pre>
+
+### JS Arrays
+- array is an object that can store multiple values at once
+- arrays allow us to organize related data by grouping them within a single variable
+- array can store many values in a single variable, making it easy to access them by referring to the corresponding index number
+
+**creating an array**
+- we can create an array by placing elements inside an array literal [], separated by commas
+
+<pre>Example:
+const numbers = [10, 30, 40, 60, 80];
+</pre>
+
+here,
+- numbers - name of the array
+- [10, 30, 40, 60, 80] - elements of the array
+
+**accessing elements of an array**
+- each element of an array is associated with a number called an index, which specifies its position inside the array
+
+<pre>Example:
+let numbers = [10, 30, 40, 60, 80]
+
+console.log(numbers[0]);  // access first element
+
+console.log(numbers[2]);  // access third element
+
+Output:
+10
+40
+</pre>
+
+**adding element to an array**
+- add elements to an array using built-in methods like **push()** and **unshift()**
+
+1. using push()
+    - push() method adds an element at the end of the array
+
+<pre>Example:
+let dailyActivities = ["eat", "sleep"];
+
+dailyActivities.push("exercise"); // add an element at the end
+
+console.log(dailyActivities);
+
+Output: 
+[ 'eat', 'sleep', 'exercise' ]
+</pre>
+
+2. using unshift()
+    - unshift() method adds an element at the beginning of the array
+
+<pre>Example:
+let dailyActivities = ["eat", "sleep"];
+
+dailyActivities.unshift("work"); // add an element at the beginning
+
+console.log(dailyActivities);
+
+Output: 
+[ 'work', 'eat', 'sleep' ]
+</pre>
+
+**changing elements of an array**
+- we can add or change elements by accessing the index value
+
+<pre>Example:
+let dailyActivities = [ "eat", "work", "sleep"];
+
+dailyActivities[1] = "exercise"; // change the second element - use array index 1
+
+console.log(dailyActivities);
+
+Output: 
+[ 'eat', 'exercise', 'sleep' ]
+</pre>
+
+**removing elements in an array**
+- we can remove an element from any specified index of an array using the **splice()** method
+
+<pre>Example:
+let numbers = [1, 2, 3, 4, 5];
+
+numbers.splice(2, 1); // remove one element starting from index 2
+
+console.log(numbers);
+
+Output: 
+[ 1, 2, 4, 5 ]
+</pre>
+
+**Iterate through an array**
+ - for loop can also be used to iterate over elements of an array
+
+<pre>Example:
+const fruits = ["apple", "banana", "cherry"];
+
+for (let i = 0; i < fruits.length; i++) 
+{
+    console.log(fruits[i]);
+}
+
+Output:
+apple
+banana
+cherry
+</pre>
+
+**commonly used array methods**
+- concat() - joins two or more arrays and returns a result
+- toString() - converts an array to a string of (comma-separated) array values
+- indexOf() - searches an element of an array and returns its position (index)
+- find() - returns the first value of the array element that passes a given test
+- findIndex() - returns the first index of the array element that passes a given test
+- forEach() - calls a function for each element
+- includes() - checks if an array contains a specified element
+- sort() - sorts the elements alphabetically in strings and ascending order in numbers
+- slice() - selects part of an array and returns it as a new array
+- splice() - removes or replaces existing elements and/or adds new elements
+
+### Multidimensional arrays
+ - multidimensional arrays contain another array inside them
+
+<pre>Example:
+const data = [[1, 2, 3], [1, 3, 4], [4, 5, 6]]; // contains 3 separate arrays as elements
+
+console.log(data);
+
+Output: 
+[ [ 1, 2, 3 ], [ 1, 3, 4 ], [ 4, 5, 6 ] ]
+</pre>
+
+**using existing array as elements**
+- we can create multidimensional arrays by nesting arrays within them
+
+<pre>Example:
+let student1 = ['Jack', 24];
+let student2 = ['Sara', 23];
+let student3 = ['Peter', 24];
+
+let studentsData = [student1, student2, student3]; // create multidimensional array using student1, student2, and student3
+
+console.log(studentsData);
+
+Output: 
+[ [ 'Jack', 24 ], [ 'Sara', 23 ], [ 'Peter', 24 ] ]
+</pre>
+
+**accessing elements of a multideimensional array**
+- we can access the elements of a multidimensional array using array indexes
+
+<pre>Example:
+let x = [ ['Jack', 24], ['Sara', 23],  ['Peter', 24] ];
+
+console.log(x[0]);  // access the first item 
+
+console.log(x[0][0]);  // access the first item of the first inner array
+
+console.log(x[2][1]);  // access the second item of the third inner array
+
+Output:
+[ 'Jack', 24 ]
+Jack
+24
+</pre>
+
+**adding elements to a multidimensional array**
+- we can use an **index notation** or **push()** method to add elements to a multidimensional array
+
+1. using index notation
+
+<pre>Example:
+let studentsData = [["Jack", 24], ["Sara", 23]];
+
+studentsData[1][2] = "hello"; // add "hello" as the 3rd element of the 2nd inner array
+
+console.log(studentsData);
+
+Output: 
+[ [ 'Jack', 24 ], [ 'Sara', 23, 'hello' ] ]
+</pre>
+
+2. using push()
+
+<pre>Example:
+let studentsData = [["Jack", 24], ["Sara", 23]];
+
+studentsData.push(["Peter", 24]); // add element to the end of the outer array
+
+console.log(studentsData);
+
+studentsData[1].push("hello"); // add "hello" as the final element of the 2nd inner array
+
+console.log(studentsData);
+
+Output:
+[ [ 'Jack', 24 ], [ 'Sara', 23 ], [ 'Peter', 24 ] ]
+[ [ 'Jack', 24 ], [ 'Sara', 23, 'hello' ], [ 'Peter', 24 ] ]
+</pre>
+
+**removing elements from multidimensional array**
+- we can use the splice() method to remove an element from any position in the multidimensional array
+
+<pre>Example:
+let studentsData = [['Jack', 24], ['Sara', 23],];
+
+studentsData.splice(0,1); // remove one element starting from index 0
+
+console.log(studentsData);
+
+Output: 
+[ [ 'Sara', 23 ] ]
+</pre>
+
+**Iterate through an multidimensional array**
+ - we can use nested loops to go through a multidimensional array: one loop for the outer array and another loop inside it for the inner arrays
+
+<pre>Example:
+et studentsData = [["Jack", 24], ["Sara", 23]];
+
+for(let i = 0; i < studentsData.length; i++) // loop over outer array
+{
+    for(let j = 0; j < studentsData[i].length; j++) // loop over inner array elements
+    {
+        console.log(studentsData[i][j]);
+    }
+}
+
+Output:
+Jack
+24
+Sara
+23
+</pre>
