@@ -850,3 +850,243 @@ Jack
 Sara
 23
 </pre>
+
+---
+
+## DAY 4: 18.04.2025
+
+### Function and Function Expression
+- function is an independent block of code that performs a specific task
+- a function expression is a way to store functions in variables (the value returned from the function is stored in function expression)
+
+**creating a function**
+- we can create a function in JavaScript using the **function** keyword
+
+<pre>Example:
+function greet() 
+{
+    console.log("Hello World!");
+}
+</pre>
+
+**calling a function**
+- we call a function by writing the function name followed by parentheses ()
+-  if we want to use the function, we need to call it
+
+<pre>Example 1:
+function greet() // function creation
+{
+    console.log("Hello World!");
+}
+
+greet(); // function call
+
+Output:
+Hello World!
+</pre>
+
+<pre>Example 2:
+function greet() 
+{
+    console.log("Hello World!");
+}
+
+greet(); // function call
+
+console.log("Outside function");
+
+Output:
+Hello World!
+Outside function
+</pre>
+
+here,
+- when the greet() function is called, the program's control transfers to the function definition and all the code inside the function is executed (Hello World! is printed)
+- the program control then jumps to the next statement after the function call (Outside function is printed)
+
+**Function Arguments**
+- arguments are values you pass to the function when you call it
+
+<pre>Example:
+function greet(name) // function with a parameter called 'name'
+{
+    console.log(`Hello ${name}`);
+}
+
+greet("John"); // pass argument to the function
+
+Output: 
+Hello John
+</pre>
+
+here, we passed "John" as an argument to the greet() function
+
+**passing different arguments to the function**
+- we can pass different arguments in each call, making the function re-usable and dynamic
+
+<pre>Example:
+function greet(name) 
+{
+    console.log(`Hello ${name}`);
+}
+
+greet("John"); // pass "John" as argument
+
+greet("David"); // pass "David" as argument
+
+Output:
+Hello John
+Hello David
+</pre>
+
+**return statement**
+- we can return a value from a JS function using the **return** statement
+
+<pre>Example:
+function findSquare(num) 
+{
+    return num * num; // return square
+}
+
+let square = findSquare(3); // call the function and store the result
+
+console.log(`Square: ${square}`);
+
+Output:
+Square: 9
+</pre>
+
+**return terminates the function**
+- any code after return statement is not executed
+
+<pre>Example:
+function display() 
+{
+    console.log("This will be executed.");
+    return "Returning from function."; // teriminates
+
+    console.log("This will not be executed."); // code after return statement
+}
+
+let message = display();
+console.log(message);
+
+Output:
+This will be executed.
+Returning from function.
+</pre>
+
+**JS library functions**
+- JS provides some built-in functions that can be directly used in our program
+- we don't need to create these functions, we just need to call them
+
+some common JS library functions,
+- console.log() - prints the string inside the quotation marks
+- Math.sqrt() - returns the square root of a number
+- Math.pow() - returns the power of a number
+- toUpperCase() - returns the string converted to uppercase
+- toLowerCase() - returns the string converted to lowercase
+
+<pre>Example:
+let squareRoot = Math.sqrt(4); // Math.sqrt() computes the square root
+console.log("Square Root of 4 is", squareRoot);
+
+let power = Math.pow(2, 3); // Math.pow() computes the power
+console.log("2 to the power of 3 is", power);
+
+let band = "Tommorow x Together"; 
+let bandUpper = band.toUpperCase(); // toUpperCase() converts text to uppercase
+console.log(`Favorite Band: ${bandUpper}`);
+
+Output:
+Square Root of 4 is 2
+2 to the power 3 is 8
+Favorite Band: TOMORROW X TOGETHER
+</pre>
+
+**function expressions**
+- it is the way to store functions in variables
+
+<pre>Example:
+let square = function(num) // store function in the square variable
+{
+    return num * num;
+};
+
+console.log(square(5));  
+
+Output: 
+25
+</pre>
+
+### Variable Scope
+- scope of a variable determines where it can be accessed within the code
+- variables can be declared in various scopes namely, **global, local and block-level scopes**
+- based on the scope the variables are decalred in, they can be classified as **global, local and block-level variables**
+
+## Local Variables
+- when variables are declared inside a function, they have a local scope and are accessible only within that function
+
+<pre>Example:
+function greet() 
+{
+    var message = "Hello"; // local variable
+    console.log(`Local: ${message}`);
+}
+
+greet();
+
+console.log(`Global: ${message}`); // try to access message variable outside the greet() function
+
+Output:
+Local: Hello
+ERROR! // when accessed outside the function
+</pre>
+
+## Global Variables
+- a variable declared outside any function or in the global scope is known as a global variable
+- can be accessed both inside and outside of functions
+
+<pre>Example:
+var message = "Hello"; // declare global variable
+
+function greet() 
+{
+    console.log(`Local: ${message}`); // accessing inside a function
+}
+
+greet();
+
+console.log(`Global: ${message}`); // accessing outside a function
+
+Output:
+Local: Hello
+Global: Hello
+</pre>
+
+## Block Level Variables
+- JS ES6 introduced block-level scoping with the let and const keywords
+- accessible only within the block {} they are defined in, which can be smaller than a function's scope
+
+<pre>Example:
+function display_scopes() 
+{
+    let message = "local"; // declare variable in local scope, used inside the display_scopes() function
+
+    if (true) 
+    {
+        let message = "block-level"; // declare block-level variable, used only inside the if block
+        console.log(`inner scope: ${message}`);
+    }
+    console.log(`outer scope: ${message}`);
+}
+
+display_scopes();
+
+Output:
+inner: block-level
+outer: local
+</pre>
+
+
+
