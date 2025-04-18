@@ -1024,7 +1024,7 @@ Output:
 - variables can be declared in various scopes namely, **global, local and block-level scopes**
 - based on the scope the variables are decalred in, they can be classified as **global, local and block-level variables**
 
-## Local Variables
+### Local Variables
 - when variables are declared inside a function, they have a local scope and are accessible only within that function
 
 <pre>Example:
@@ -1043,7 +1043,7 @@ Local: Hello
 ERROR! // when accessed outside the function
 </pre>
 
-## Global Variables
+### Global Variables
 - a variable declared outside any function or in the global scope is known as a global variable
 - can be accessed both inside and outside of functions
 
@@ -1064,7 +1064,7 @@ Local: Hello
 Global: Hello
 </pre>
 
-## Block Level Variables
+### Block Level Variables
 - JS ES6 introduced block-level scoping with the let and const keywords
 - accessible only within the block {} they are defined in, which can be smaller than a function's scope
 
