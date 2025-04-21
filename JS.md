@@ -142,7 +142,7 @@ undefined
 
  - null: no value or nothing
 
-<pre>
+<pre>Example:
 let number = null;
 console.log(number);
 
@@ -1088,5 +1088,341 @@ inner: block-level
 outer: local
 </pre>
 
+---
 
+## DAY 5: 21.04.2025
 
+### Objects
+- object is a variable that can store multiple data in key-value pairs
+
+**creating an object**
+
+syntax of object:
+<pre>const objectName = {
+    key1: value1,
+    key2: value2,
+    ...,
+    keyN: valueN
+};</pre>
+
+here,
+- `objectName` - name of the object
+- `key1: value1` - first key-value pair
+- `key2: value2` - second key-value pair
+- `keyN: valueN` - Nth key-value pair
+- each key-value pair has a colon **:** between them and is separated by a comma **,**
+
+<pre>Example:
+const person = { 
+    name: "John",
+    age: 20
+}; // create person object
+
+console.log(person);
+
+Output: 
+{ name: "John", age: 20 }
+</pre>
+
+### Object properties
+- the key-value pairs of an object are referred to as properties
+
+<pre>Example:
+const person = {
+    name: "John",
+    age: 20,
+};
+</pre>
+
+here, **name: "John"** and **age: 30** are the properties of the object **person**
+
+**Accessing object properties**
+- use **dot notation** or **bracket notation**
+
+<pre>Example:
+const person = {
+    name: "John",
+    age: 20
+};
+
+console.log(person.name); // dot notation
+console.log(person["age"]); // bracket notation
+
+Output:
+John
+20
+</pre>
+
+### JavaScript Object Operations
+
+1. Modify object properties
+- assign a new value to an existing key
+
+<pre>Example:
+const person = {
+    name: "Bobby",
+    hobby: "Dancing"
+};
+
+person.hobby = "Reading";
+console.log(person.hobby);
+
+Output:
+Reading
+</pre>
+
+2. Add new properties
+- add a new key-value pair to the object
+
+<pre>Example:
+person.age = 25;
+console.log(person.age);
+
+Output:
+25
+</pre>
+
+3. Delete properties
+- Remove a property using the **delete** operator
+
+<pre>Example:
+delete person.name;
+console.log(person);
+
+Output:
+{ hobby: 'Reading', age: 25 }
+</pre>
+
+### Javascript Methods
+- method is a function defined within an object
+
+<pre>Example:
+const dog = {
+    name: "Rocky",
+    bark: function() 
+    {
+        console.log("Woof!");
+    }
+};
+
+dog.bark(); //accessing or calling the object method
+
+Output:
+Woof!
+</pre>
+
+### this Keyword
+- inside a method, **this** refers to the object the method belongs to
+
+<pre>Example:
+const person = {
+    name: "Tony",
+    greet: function() 
+    {
+        console.log("Hello", this.name);
+    }
+};
+
+person.greet();
+
+Output:
+Hello Tony
+</pre>
+
+### some common JS built-in methods
+| Method         | Object   | Description                                                   |
+|----------------|----------|---------------------------------------------------------------|
+| console.log()  | Console  | displays messages or variables in the browser's console       |
+| prompt()       | Window   | displays a dialog box that prompts the user for input         |
+| concat()       | String   | concatenates the arguments to the calling string              |
+| toFixed()      | Number   | rounds off a number into a fixed number of digits             |
+| sort()         | Array    | sorts the elements of an array in specific order              |
+| random()       | Math     | returns a pseudo-random float number between 0 and 1          |
+
+### Constructor Function
+- constructor function is used to create and initialize objects
+
+<pre>Example:
+function Person () // constructor function
+{
+    this.name = "John",
+    this.age = 23
+}
+
+const person = new Person(); // create an object
+
+console.log(person.name);
+console.log(person.age);
+
+Output:
+John
+23
+</pre>
+
+**creating multiple objects with constructor function**
+
+<pre>Example:
+function Person () // constructor function
+{
+    this.name = "John",
+    this.age = 23,
+    this.greet = function () 
+    {
+        console.log("hello");
+    }
+}
+
+const person1 = new Person(); // create objects
+const person2 = new Person(); // create objects
+
+console.log(person1.name);  
+console.log(person2.name);  
+
+Output:
+John
+John
+</pre>
+
+**constructor function parameters**
+
+<pre>Example:
+function Person (person_name, person_age, person_gender) // constructor function with parameters
+{
+    this.name = person_name,
+    this.age = person_age,
+    this.gender = person_gender,
+    this.greet = function () 
+    {
+        return (`Hi ${this.name}`);
+    }
+}
+
+const person1 = new Person("John", 23, "male"); // create objects and pass arguments
+const person2 = new Person("Sam", 25, "female");// create objects and pass arguments
+
+console.log(person1.name); 
+console.log(person2.name);
+
+Output:
+John
+Sam
+</pre>
+
+### Constructor Function vs. Object Literal
+- object literals are used to create a single object
+- constructor functions are useful for creating multiple objects with similar structure
+
+<pre>Example using object literal:
+const person = {
+    name: "Sam"
+};
+
+console.log(person.name); 
+
+Output: 
+Sam
+</pre>
+
+<pre>Example using constructor function:
+function Person() 
+{
+    this.name = "Sam";
+}
+
+const person1 = new Person();
+const person2 = new Person();
+
+console.log(person1.name); 
+console.log(person2.name); 
+
+Output:
+Sam
+Sam
+</pre>
+
+### JS getter and setter
+- there are two kinds of object properties, **data properties** and **accessor properties**
+
+1. data property
+
+<pre>Example:
+const student = {
+    firstName: 'Monica'; // data property
+};
+</pre>
+
+2. accessor property
+- accessor properties are methods that get or set the value of an object
+- we use these two keywords:
+    - **get** to define a getter method to get the property value
+    - **set** to define a setter method to set the property value
+
+**getter**
+- getter methods are used to access the properties of an object
+
+<pre>Example:
+const student = {
+    firstName: 'Monica', // data property
+    get getName() // accessor property(getter)
+    { 
+        return this.firstName; 
+    }
+};
+
+console.log(student.firstName); // accessing data property
+console.log(student.getName); // accessing getter methods
+
+Output:
+Monica
+Monica
+</pre>
+
+**setter**
+- setter methods are used to change the values of an object
+
+<pre>Example:
+const student = {
+    firstName: 'Monica',
+    set changeName(newName) //accessor property(setter)
+    {
+        this.firstName = newName;     
+    }
+};
+
+console.log(student.firstName); 
+
+student.changeName = 'Sarah'; // change(set) object property using a setter
+
+console.log(student.firstName); // Sarah
+
+Output:
+Monica
+Sarah
+</pre>
+
+### DOM
+- when a web page is loaded, the browser creates a Document Object Model of the page
+- HTML DOM model is constructed as a tree of objects
+
+With the object model, JavaScript gets all the power it needs to create dynamic HTML:
+- change all the HTML elements in the page
+- change all the HTML attributes in the page
+- change all the CSS styles in the page
+- remove existing HTML elements and attributes
+- add new HTML elements and attributes
+- react to all existing HTML events in the page
+- create new HTML events in the page
+
+**HTML DOM**
+- HTML DOM is a standard object model and programming interface for HTML
+- it defines,
+    - HTML elements as objects
+    - properties of all HTML elements
+    - methods to access all HTML elements
+    - events for all HTML elements
+- in other words, HTML DOM is a standard for how to get, change, add, or delete HTML elements
+
+<pre>Example:
+document.getElementById("demo").innerHTML = "Hello World!"; 
+// changes the content of the html with id="demo"
+</pre>

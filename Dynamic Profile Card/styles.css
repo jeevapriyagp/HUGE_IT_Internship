@@ -1,0 +1,151 @@
+body 
+{
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+  box-sizing: border-box;
+  margin: 5px;
+  padding: 5px;
+}
+
+.container 
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.toggle-switch 
+{
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.switch 
+{
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input 
+{
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider 
+{
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 25px;
+}
+
+.slider:before 
+{
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider 
+{
+  background-color: #333;
+}
+
+input:checked + .slider:before 
+{
+  transform: translateX(25px);
+}
+
+.profile-card 
+{
+  background-color: white;
+  padding: 25px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.profile-card img 
+{
+  border-radius: 50%;
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.profile-card .role 
+{
+  font-weight: bold;
+  color: #555;
+}
+
+.profile-card .bio 
+{
+  margin: 10px 0;
+}
+
+.socials 
+{
+  margin-top: 15px;
+}
+
+.socials a 
+{
+  margin: 0 10px;
+  text-decoration: none;
+  color: #555;
+  font-size: 1.4rem;
+  transition: color 0.3s;
+}
+
+.socials a:hover 
+{
+  color: #1da1f2;
+}
+
+/* Dark Mode */
+.dark-mode 
+{
+  background-color: #1f1f1f;
+  color: #f1f1f1;
+}
+
+.dark-mode .profile-card 
+{
+  background-color: #2a2a2a;
+  color: #f1f1f1;
+}
+
+.dark-mode .role 
+{
+  color: #ccc;
+}
+
+.dark-mode .socials a 
+{
+  color: #ccc;
+}
+
+.dark-mode .socials a:hover
+{
+  color: #1da1f2;
+}
