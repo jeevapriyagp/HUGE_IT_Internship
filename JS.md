@@ -1421,7 +1421,7 @@ With the object model, JavaScript gets all the power it needs to create dynamic 
     - methods to access all HTML elements
     - events for all HTML elements
 - in other words, HTML DOM is a standard for how to get, change, add, or delete HTML elements
-
+ 
 <pre>Example:
 document.getElementById("demo").innerHTML = "Hello World!"; 
 // changes the content of the html with id="demo"
