@@ -1426,3 +1426,187 @@ With the object model, JavaScript gets all the power it needs to create dynamic 
 document.getElementById("demo").innerHTML = "Hello World!"; 
 // changes the content of the html with id="demo"
 </pre>
+
+---
+
+## DAY 6: 22.04.2025
+
+### Events and Interactivity
+- events are actions or occurrences that happen in the browser
+- they can be triggered by various user interactions or by the browser itself
+
+```html
+Example:
+<html>
+<script>
+    function myFun() 
+    {
+        document.getElementById("demo").innerHTML = "Hello"; //displays hello when the button is clicked
+    }
+</script>
+
+<body>
+    <button onclick="myFun()">Click me</button>
+    <p id="demo"></p>
+</body>
+</html>
+```
+
+here,
+- onclick attribute in the `<button>` calls the myFun() function when clicked
+- myFun() function updates the `<p>` element with id=”gfg” by setting its innerHTML to "Hello"
+- the `<p>` is empty, and its content changes dynamically on button click
+
+## Event Types
+- JS supports a variety of event types, common categories include:
+    - **Mouse Events**: click, dblclick, mousemove, mouseover, mouseout
+    - **Keyboard Events**: keydown, keypress, keyup
+    - **Form Events**: submit, change, focus, blur
+    - **Window Events**: load, resize, scroll
+
+**common JS events:**
+- onclick: triggered when an element is clicked
+```html
+Example:
+<!-- shows an alert when the button is clicked -->
+<button onclick="alert('Button clicked!')">Click Me</button>
+```
+
+- onmouseover: fired when the mouse pointer moves over an element
+```html
+Example:
+<!-- changes background color to yellow when mouse hovers over the div -->
+<div onmouseover="this.style.backgroundColor='yellow'">Hover over me</div>
+```
+
+- onmouseout: occurs when the mouse pointer leaves an element
+```html
+Example:
+<!-- resets background color to white when mouse leaves the div -->
+<div onmouseout="this.style.backgroundColor='white'">Move mouse out of me</div>
+```
+
+- onkeydown: fired when a key is pressed down
+```html
+Example:
+<!-- logs "Key down" to the console when a key is pressed -->
+<input type="text" onkeydown="console.log('Key down')" placeholder="Type something">
+```
+
+- onkeyup: fired when a key is released
+```html
+Example:
+<!-- logs "Key up" to the console when a key is released -->
+<input type="text" onkeyup="console.log('Key up')" placeholder="Type something">
+```
+
+- onchange: triggered when the value of an input element changes
+```html
+Example:
+<!-- shows an alert when the selected option is changed -->
+<select onchange="alert('Selection changed')">
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+</select>
+```
+
+- onload: occurs when a page has finished loading
+```html
+Example:
+<!-- shows an alert when the page has fully loaded -->
+<body onload="alert('Page loaded!')">
+  <h1>Welcome</h1>
+</body>
+```
+
+- onsubmit: fired when a form is submitted
+```html
+Example:
+<!-- shows an alert when the form is submitted, return false prevents actual submission -->
+<form onsubmit="alert('Form submitted'); return false;">
+  <input type="text" placeholder="Enter something">
+  <button type="submit">Submit</button>
+</form>
+```
+
+- onfocus: occurs when an element gets focus
+```html
+Example:
+<!-- changes background color to light blue when the input gets focus -->
+<input type="text" onfocus="this.style.backgroundColor='lightblue'" placeholder="Focus on me">
+```
+
+- onblur: fired when an element loses focus
+```html
+Example:
+<!-- resests background color to white when the input loses focus -->
+<input type="text" onblur="this.style.backgroundColor='white'" placeholder="Lose focus to see effect">
+```
+
+## Event Handling Methods
+1. Inline HTML Handlers
+
+Example:
+`<button onclick="alert('Button clicked!')">Click Me</button>`
+
+2. DOM Property Handlers
+
+<pre>Example:
+let btn = document.getElementById("myButton");
+btn.onclick = () => {
+      alert("Button clicked!");
+};
+</pre>
+
+3. addEventListener() (Preferred)
+
+<pre>Example:
+btn.addEventListener("click", () => {
+    alert("Button clicked using addEventListener!");
+});
+</pre>
+
+**Event Propagation**
+- events propagate in two phases:
+    - **Capturing Phase**: event travels from the root to the target element
+    - **Bubbling Phase**: event travels from the target element back to the root
+
+<pre>Example:
+document.querySelector("div").addEventListener("click", () => {
+    console.log("Div clicked");
+}, true); // capturing phase
+
+button.addEventListener("click", (e) => {
+    console.log("Button clicked");
+    e.stopPropagation(); // stops propagation
+});
+</pre>
+
+here,
+- setting true in addEventListener makes it capture events during the capturing phase
+- stopPropagation() halts further propagation
+
+**Event Delegation**
+- allows you to handle events efficiently by attaching a single listener to a parent element
+
+<pre>Example:
+document.querySelector("ul").addEventListener("click", (e) => {
+    if (e.target.tagName === "LI") {
+        console.log(`Clicked on item: ${e.target.textContent}`);
+    }
+});
+</pre>
+
+**Preventing Default Behavior**
+- certain elements have default actions, use preventDefault() to override them
+
+<pre>Example:
+document.querySelector("a").addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log("Link click prevented");
+});
+</pre>
+
+
+
+
