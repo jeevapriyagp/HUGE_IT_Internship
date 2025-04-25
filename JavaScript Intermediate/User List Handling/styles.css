@@ -1,0 +1,65 @@
+body 
+{
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8fafc;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container 
+{
+    max-width: 700px;
+    margin: auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 
+{
+    text-align: center;
+    color: #1e40af;
+}
+
+button 
+{
+    display: block;
+    margin: 20px auto;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.output h3 
+{
+    margin-top: 25px;
+    color: #0f172a;
+}
+
+ul 
+{
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li 
+{
+    background: #e0f2fe;
+    margin: 8px 0;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+#totalRevenue 
+{
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e3a8a;
+    padding: 10px 0;
+}

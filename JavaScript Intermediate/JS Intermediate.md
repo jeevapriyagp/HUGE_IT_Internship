@@ -165,3 +165,162 @@ Alice
 New York
 NY
 ```
+
+---
+
+## DAY 2: 25.04.2025
+
+### Map method
+- Applies a given function on all the elements of the array and returns the updated array
+- Simpler and shorter code instead of a loop
+
+<pre>Syntax of map()
+array.map(function_to_be_applied)
+
+(or)
+
+array.map(function (args) {
+    // code block of the function
+})
+</pre>
+
+```js 
+Example 1:
+function triple(n)
+{ 
+	return n*3; 
+}	 
+arr = new Array(1, 2, 3, 6, 5, 4); 
+
+// function is declared outside map() and the function name is mentioned in map()
+var new_arr = arr.map(triple) // applies the triple() to all the elements of arr
+console.log(new_arr); 
+
+Output:
+[ 3, 6, 9, 18, 15, 12 ]
+```
+
+```js
+Example 2:
+let celsiusTemps = [0, 15, 30, 25, 40];
+
+// the function is declared inside the map()
+let fahrenheitTemps = celsiusTemps.map(function(temp) { // applies function(temp) to all the elements of celsiusTemps
+    return (temp * 9/5) + 32;
+});
+
+console.log(fahrenheitTemps);
+
+Output:
+[32, 59, 86, 77, 104]
+```
+
+### Reduce Method
+- Reduces all the elements of the array to a single value by repeatedly applying a function
+- Alternative of using a loop and updating the result for every scanned element
+
+<pre>Syntax of reduce()
+array.map(function_to_be_applied)
+
+(or)
+
+array.map(function (args) {
+    // code block of the function
+})
+</pre>
+
+```js
+Example 1:
+function product(a, b)
+{ 
+	return a * b; 
+}
+
+arr = new Array(1, 2, 3, 6, 5, 4); 
+
+var product_of_arr = arr.reduce(product) // reduces the array into the product of all elements in it
+console.log(product_of_arr)
+
+Output:
+720
+```
+
+```js
+Example 2:
+let cart = [
+    { item: "Book", price: 250 },
+    { item: "Pen", price: 30 },
+    { item: "Notebook", price: 120 },
+    { item: "Bag", price: 800 }
+];
+
+let totalPrice = cart.reduce(function(accumulator, currentItem) { // reduces into the total sum price of all items in the cart list
+    return accumulator + currentItem.price;
+}, 0);
+
+console.log(totalPrice);
+
+Output:
+1200
+```
+
+### Filter Method
+- Filters the elements of the array that return false for the applied condition and returns the array which contains elements that satisfy the applied condition
+- Simpler and shorter code instead of using a loop
+
+<pre>Syntax of filter()
+array.map(function_to_be_applied)
+
+(or)
+
+array.map(function (args) {
+    // code block of the function
+})
+</pre>
+
+```js
+Example 1:
+arr = new Array(1, 2, 3, 6, 5, 4); 
+
+var new_arr = arr.filter(function (x) { // filters out even numbers using the condition x%2 == 0
+	return x % 2==0; 
+}); 
+
+console.log(new_arr) 
+
+Output:
+[ 2, 6, 4 ]
+```
+
+```js
+Example 2:
+let students = [
+    { name: "Anya", marks: 85 },
+    { name: "Ben", marks: 42 },
+    { name: "Clara", marks: 76 },
+    { name: "Derek", marks: 33 },
+    { name: "Eva", marks: 90 }
+];
+
+let passedStudents = students.filter(function(student) { // filters out students with marks >= 50
+    return student.marks >= 50;
+});
+
+console.log(passedStudents);
+
+Output:
+[
+  { name: 'Anya', marks: 85 },
+  { name: 'Clara', marks: 76 },
+  { name: 'Eva', marks: 90 }
+]
+```
+
+
+
+
+
+
+
+
+

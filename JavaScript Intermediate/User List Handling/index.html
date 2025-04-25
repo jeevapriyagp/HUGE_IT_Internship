@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Customer Subscription Dashboard</h1>
+
+    <button onclick="processCustomers()">Generate Report</button>
+
+    <div class="output">
+      <h3>Active Customers:</h3>
+      <ul id="activeCustomers"></ul>
+
+      <h3>Inactive Customers:</h3>
+      <ul id="inactiveCustomers"></ul>
+
+      <h3>Active Customers & Subscription Fees:</h3>
+      <ul id="formattedCustomers"></ul>
+
+      <h3>Total Monthly Revenue:</h3>
+      <p id="totalRevenue"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
