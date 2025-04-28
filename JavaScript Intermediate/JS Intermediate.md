@@ -377,6 +377,7 @@ var items = document.getElementsByClassName("list-item"); // finds all elements 
 | element.innerHTML = new html content | Change the inner HTML of an element |
 | element.attribute = new value | Change the attribute value of an HTML element |
 | element.style.property = new style | Change the style of an HTML element |
+
 | Method | Description |
 |--------|-------------|
 | element.setAttribute(attribute, value) | Change the attribute value of an HTML element |
