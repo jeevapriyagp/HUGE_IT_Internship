@@ -316,6 +316,150 @@ Output:
 ]
 ```
 
+---
+
+## DAY 3: 28.04.2025
+
+### DOM Methods and Properties
+- methods are actions you can perform on HTML elements
+- properties are values of HTML elements that you can set or change
+
+```html
+Example:
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = "Hello World!"; // changes the html element with id demo 
+</script>
+
+</body>
+</html>
+```
+
+**getElementById Method**
+- way to access an HTML element is to use the id of the element
+- in the example above the **getElementById** method used id="demo" to find the element
+
+**innerHTML Property**
+- way to get the content of an element is by using the innerHTML property
+- useful for getting or replacing the content of HTML elements
+
+### Finding HTML Elements
+
+| Method | Description |
+|--------|-------------|
+| document.getElementById(id) | Find an element by element ID |
+| document.getElementsByTagName(name) | Find elements by tag name |
+| document.getElementsByClassName(name) | Find elements by class name |
+
+```js
+Example:
+var element = document.getElementById("myHeading"); // finds the element with the ID "myHeading"
+```
+
+```js
+Example:
+var paragraphs = document.getElementsByTagName("p"); // finds  all <p> elements on the page
+```
+
+```js
+Example:
+var items = document.getElementsByClassName("list-item"); // finds all elements with the class "list-item"
+```
+
+### Changing HTML Elements
+
+| Property | Description |
+|----------|-------------|
+| element.innerHTML = new html content | Change the inner HTML of an element |
+| element.attribute = new value | Change the attribute value of an HTML element |
+| element.style.property = new style | Change the style of an HTML element |
+| Method | Description |
+|--------|-------------|
+| element.setAttribute(attribute, value) | Change the attribute value of an HTML element |
+
+```js
+Example:
+document.getElementById("demo").innerHTML = "Hello World!"; // changes the content of the element with ID "demo" to "Hello World!"
+```
+
+```js
+Example:
+document.getElementById("myImage").src = "newImage.jpg"; // changes the source of the image with ID "myImage" to "newImage.jpg"
+```
+
+```js
+Example:
+document.getElementById("demo").style.color = "blue"; // changes the text color of the element with ID "demo" to blue
+```
+
+```js
+Example:
+document.getElementById("myLink").setAttribute("href", "https://www.example.com"); 
+// changes the "href" attribute of the link with ID "myLink" to a new URL
+```
+
+### Adding and Deleting Elements
+
+| Method | Description |
+|--------|-------------|
+| document.createElement(element) | Create an HTML element |
+| document.removeChild(element) | Remove an HTML element |
+| document.appendChild(element) | Add an HTML element |
+| document.replaceChild(new, old) | Replace an HTML element |
+| document.write(text) | Write into the HTML output stream |
+
+```js
+Example:
+var newDiv = document.createElement("div"); // creates a new <div> element
+```
+
+```js
+Example:
+var parent = document.getElementById("parentDiv"); 
+var child = document.getElementById("childDiv"); 
+parent.removeChild(child); // removes the child element from the parent element
+```
+
+```js
+Example:
+var newItem = document.createElement("li"); 
+var textNode = document.createTextNode("New Item"); 
+newItem.appendChild(textNode); // appends the text to the new <li> element
+document.getElementById("myList").appendChild(newItem); // adds the new list item to the element with ID "myList"
+```
+
+```js
+Example:
+var newElement = document.createElement("p"); 
+newElement.innerHTML = "This is a new paragraph.";
+var oldElement = document.getElementById("oldPara"); 
+var parent = oldElement.parentNode; 
+parent.replaceChild(newElement, oldElement); // replaces the old paragraph with the new one
+```
+
+```js
+Example:
+document.write("<h1>Hello, World!</h1>"); // writes a new <h1> element with the text "Hello, World!" into the document
+```
+
+### Adding Event Handlers
+
+| Method | Description |
+|--------|-------------|
+| document.getElementById(id).onclick = function(){ code } | Assign an event handler function to an element's `onclick` event |
+
+```js
+Example:
+document.getElementById("myButton").onclick = function() { // adds a click event listener to the button with ID "myButton"
+  alert("Button clicked!"); // Displays an alert when the button is clicked
+};
+```
+
+
 
 
 
