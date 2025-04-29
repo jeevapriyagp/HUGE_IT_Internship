@@ -460,9 +460,136 @@ document.getElementById("myButton").onclick = function() { // adds a click event
 };
 ```
 
+---
 
+## DAY 4: 29.04.2025
 
+### Form Events
+- Form events in JS are events that are associated with HTML forms
+- Allows to execute JS code in response to these actions, enabling you to validate form data, perform actions on form submission or reset, and enhance the user experience
+- Hooked onto the elements in DOM where by default the bubbling propagation is used i.e. from bottom (children) to top(parent)
 
+**Common Form Events**
+- `onsubmit` - triggered when a form is submitted. It's often used for form validation before data is sent to the server
+
+```html
+Example:
+<form onsubmit="return validateForm()">
+    <input type="text" id="name" placeholder="Enter name">
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+function validateForm() 
+{
+    const name = document.getElementById("name").value;
+    if (name === "") 
+    {
+        alert("Name is required!");
+        return false; // prevents form submission
+    }
+    return true;
+}
+</script>
+```
+
+- `onreset` - triggered when the form is reset, allowing you to perform actions when the user resets the form
+
+```html
+Example:
+<html>
+<body>
+    <form onreset="resetForm()">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <input type="reset" value="Reset">
+    </form>
+    <script>
+        function resetForm() 
+        {
+            // Perform actions when the form is reset
+            alert("Form has been reset!");
+        }
+    </script>
+</body>
+</html>
+```
+
+- `onchange` - triggered when the value of a form element (input, select, textarea) changes. Commonly used for user input validation or dynamic updates
+
+```html
+Example:
+<html>
+<body>
+    <label for="country">Select a country:</label>
+    <select id="country" onchange="handleChange()">
+        <option value="USA">USA</option>
+        <option value="Canada">Canada</option>
+        <option value="UK">UK</option>
+        <option value="India">India</option>
+    </select>
+    <p id="txt"></p>
+    <script>
+        function handleChange() 
+        {
+            // perform actions when the dropdown selection changes
+            var selectedCountry = document.getElementById('country').value;
+            document.getElementById("txt").textContent="Selected country: "+selectedCountry;
+        }    
+    </script>
+</body>
+</html>
+```
+
+- `oninput` - triggered immediately when the value of an input element changes, allowing for real-time handling of user input
+
+```html
+Example:
+<html>
+<body>
+    <label for="search">Search:</label>
+    <input type="text" id="search" oninput="handleInput()">
+    <div id="message"></div>
+
+    <script>
+        var messageElement = document.getElementById('message');
+        function handleInput() 
+        {
+            // performs actions as the user types
+            var searchInput = document.getElementById('search').value;
+            messageElement.innerHTML+="Search input: " + searchInput+'<br>';
+        }
+   </script>
+</body>
+</html>
+```
+
+- `onfocus`- triggered when an element receives focus, such as when a user clicks or tabs into an input field
+- `onblur` - riggered when an element loses focus, such as when a user clicks outside an input field or tabs away
+
+```html
+Example:
+<html>
+<body>
+    <label for="name">Name:</label>
+    <input type="text" id="name" onfocus="handleFocus()" onblur="handleBlur()">
+    <p id= "output"></p>
+    <script>
+        const output = document.getElementById('output');
+        function handleFocus() 
+        {
+            // perform actions when the input gets focus
+            output.innerHTML += "Input has focus" + "<br>";
+        }
+        function handleBlur() 
+        {
+            // perform actions when the input loses focus
+            output.innerHTML += "Input lost focus" + "<br>";
+        }
+    </script>
+</body>
+</html>
+```
 
 
 
