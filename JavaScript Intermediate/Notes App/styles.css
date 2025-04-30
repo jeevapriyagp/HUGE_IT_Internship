@@ -1,0 +1,50 @@
+body 
+{
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+}
+  
+input, textarea 
+{
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    font-size: 16px;
+}
+  
+button 
+{
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+  
+.noteItem 
+{
+    background-color: #f0f0f0;
+    margin: 5px 0;
+    padding: 10px;
+    border-left: 4px solid #007bff;
+}
+  
+.noteItem button 
+{
+    margin-right: 10px;
+}
+  
+.hidden 
+{
+    display: none;
+}
+  
+#noteDisplay 
+{
+    background: #eef;
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+  

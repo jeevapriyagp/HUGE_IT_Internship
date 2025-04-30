@@ -591,7 +591,132 @@ Example:
 </html>
 ```
 
+---
 
+## DAY 5: 30.04.2025
+
+### Local Storage
+- localStorage object allows you to save key/value pairs in the browser
+- localStorage object stores data with no expiration date
+- data is not deleted when the browser is closed, and are available for future sessions
+
+- Only strings can be stored, use JSON.stringify() and JSON.parse() to store objects or arrays
+- Not accessible in private/incognito mode on some browsers
+
+### Methods Used:
+- `setItem(key, value)` - stores a value under the specified key
+
+```js
+Example:
+localStorage.setItem('username', 'JohnDoe');
+```
+
+- `getItem(key)` - returns the value associated with the key
+
+```js
+Example:
+let user = localStorage.getItem('username');
+console.log(user); 
+
+Output: 
+JohnDoe
+```
+
+- `removeItem(key)` - removes the key and its value
+
+```js
+Example:
+localStorage.removeItem('username');
+```
+
+- `clear()` - removes all items in local storage
+
+```js
+Example:
+localStorage.clear();
+```
+
+- `key(index)` - returns the name of the key at the specified index
+
+```js 
+Example:
+localStorage.setItem('firstName', 'John');
+localStorage.setItem('lastName', 'Doe');
+
+let firstKey = localStorage.key(0);
+console.log(firstKey); 
+
+// output can be 'firstName' or 'lastName' depending on order
+```
+
+### JSON
+- JSON stands for JavaScript Object Notation
+- method for representing complex data types as strings
+- useful for localStorage, and also used for sending information back and forth over the web
+
+JSON has the following rules:
+- Keys must be double quoted
+- No trailing comma
+- Values must be one of the following types:
+    - Strings (double quoted)
+    - Numbers
+    - Booleans
+    - Arrays
+    - Objects
+
+```js
+Example on how JSON would look:
+{
+    "commonName": "Swiss Cheese Plant",
+    "classification": "Monstera",  
+    "family": "Araceae",
+    "maxHeightInFeet": 30,
+    "flower": true,
+    "scientificName": "Monstera Deliciosa"
+}
+```
+
+### Browser provides a JSON object with two methods
+
+1. JSON.stringify();
+- takes 1 argument - a JavaScript object
+- turns any JavaScript object into a valid JSON string
+
+```js
+Example:
+const student = {
+    name: "Alice",
+    age: 22,
+    course: "Computer Science"
+};
+
+const jsonString = JSON.stringify(student);
+
+console.log(jsonString);
+
+Output: 
+{"name":"Alice","age":22,"course":"Computer Science"}
+```
+
+2. JSON.parse();
+- takes 1 argument - valid JSON
+- turns any valid JSON into a usable JavaScript object
+
+```js
+Example:
+const jsonString = '{"name":"Alice","age":22,"course":"Computer Science"}';
+
+const studentObject = JSON.parse(jsonString);
+
+console.log(studentObject.name);  
+console.log(studentObject.age);  
+console.log(studentObject.course);
+
+Output:
+Alice
+22
+Computer Science
+```
 
 
 

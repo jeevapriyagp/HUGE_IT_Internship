@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h2>New Note</h2>
+  
+    <input type="text" id="noteTitle" placeholder="Note Title" />
+    <textarea id="noteContent" placeholder="Type here..."></textarea>
+    <button onclick="addNote()">Save Note</button>
+  
+    <h2>Saved Notes</h2>
+    <div id="notesList"></div>
+
+    <div id="noteDisplay" class="hidden">
+        <h3 id="displayTitle"></h3>
+        <p id="displayContent"></p>
+        <button onclick="closeNote()">Close</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
