@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Handling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <h2>Enter your details below</h2>
+    <form id="myForm">
+        <div id="generalError" class="error"></div>
+
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" />
+            <div id="nameError" class="error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" id="email" />
+            <div id="emailError" class="error"></div>
+        </div>
+    
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" />
+            <div id="ageError" class="error"></div>
+        </div>
+    
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" />
+            <div id="passwordError" class="error"></div>
+        </div>
+    
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" />
+            <div id="confirmPasswordError" class="error"></div>
+        </div>
+    
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

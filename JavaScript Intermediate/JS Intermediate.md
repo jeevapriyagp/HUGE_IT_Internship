@@ -718,6 +718,215 @@ Alice
 Computer Science
 ```
 
+## DAY 6: 01.05.2025
+### Error Handling in JS
 
+### JS try and catch
+- `try` statement allows you to define a block of code to be tested for errors while it is being executed
+- `catch` statement allows you to define a block of code to be executed, if an error occurs in the try block
+
+<pre>
+Syntax:
+try 
+{
+    block of code to try
+}
+catch(err) 
+{
+    block of code to handle errors
+}
+</pre>
+
+```js
+Example:
+try 
+{
+    let x = y + 1; // y is not defined
+} 
+catch (err) 
+{
+    console.log("An error occurred:", err.message);
+}
+
+Output:
+An error occurred: y is not defined
+```
+
+### JS Throws Errors - JS throw statement
+- When an error occurs, JS will normally stop and generate an error message
+- technical term for this is - `JavaScript will throw an exception (throw an error)`
+- actually creates an Error object with two properties, name and message
+
+- throw statement allows you to create a custom error
+- Technically you can throw an exception (throw an error), exception can be JS String, Number, Boolean or Object
+- If you use throw together with try and catch, you can control program flow and generate custom error messages
+
+```js
+Example:
+try 
+{
+    let age = 15;
+    if (age < 18) 
+    {
+        throw "Underage"; // throw a custom error (string)
+    }
+    console.log("Eligible to vote");
+} 
+catch (err) 
+{
+    console.log("Error:", err);
+}
+
+Output:
+Error: Underage
+```
+
+### JS finally Statement
+- finally statement lets you execute code, after try and catch, regardless of the result
+
+<pre>
+Syntax:
+try 
+{
+    Block of code to try
+}
+catch(err) 
+{
+    Block of code to handle errors
+}
+finally 
+{
+    Block of code to be executed regardless of the try / catch result
+}
+</pre>
+
+```js
+Example:
+try 
+{
+    let result = 10 / 0; // This won't throw an error in JS (Infinity)
+    console.log("Result is", result);
+} 
+catch (err) 
+{
+    console.log("Error:", err.message);
+} 
+finally 
+{
+    console.log("Execution complete");
+}
+
+Output:
+Result is Infinity  
+Execution complete
+```
+
+### JS Error Object
+- JS has built in error object that provides error information when an error occurs
+- error object provides two useful properties, name and message
+    - `name` - sets or returns an error name
+    - `message` - sets or returns an error message (a string)
+
+```js
+Example:
+try 
+{
+    throw new Error("Something went wrong");
+} 
+catch (err) 
+{
+    console.log("Name:", err.name);
+    console.log("Message:", err.message);
+}
+
+Output:
+Name: Error  
+Message: Something went wrong
+```
+
+### Error Name Values
+6 different values can be returned by the error name property
+
+1. Eval Error
+- `EvalError` indicates an error in the eval() function
+- Newer versions of JS  do not throw EvalError, uese SyntaxError instead
+
+2. Range Error
+- `RangeError` is thrown if you use a number that is outside the range of legal values
+
+```js
+Example:
+let num = 1;
+try 
+{
+    num.toPrecision(500);   // number cannot have 500 significant digits
+}
+catch(err) 
+{
+    document.getElementById("demo").innerHTML = err.name;
+}
+```
+
+3. Reference Error
+- `ReferenceError` is thrown if you use (reference) a variable that has not been declared
+
+```js
+Example:
+let x = 5;
+try 
+{
+    x = y + 1;   // y cannot be used or referenced
+}
+catch(err) 
+{
+    document.getElementById("demo").innerHTML = err.name;
+}
+```
+
+4. Syntax Error
+- `SyntaxError` is thrown if you try to evaluate code with a syntax error
+
+```js
+Example:
+try 
+{
+    eval("alert('Hello)");   // missing ' will produce an error
+}
+catch(err) 
+{
+    document.getElementById("demo").innerHTML = err.name;
+}
+```
+
+5. Type Error
+- `TypeError` is thrown if an operand or argument is incompatible with the type expected by an operator or function
+
+```js
+Example:
+let num = 1;
+try 
+{
+    num.toUpperCase();   // you cannot convert a number to upper case
+}
+catch(err) 
+{
+    document.getElementById("demo").innerHTML = err.name;
+}
+```
+
+6. URI (Uniform Resource Identifier) Error
+- `URIError` is thrown if you use illegal characters in a URI function
+
+```js
+Example:
+try 
+{
+    decodeURI("%%%");   // you cannot URI decode percent signs
+}
+catch(err) 
+{
+    document.getElementById("demo").innerHTML = err.name;
+}
+```
 
 
