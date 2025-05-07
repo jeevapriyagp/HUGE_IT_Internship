@@ -149,3 +149,102 @@ const element = (
 | Must Return         | Not applicable                   | Must return a single root element             |
 | Rendering           | Rendered directly in browser     | Needs to be compiled (e.g., by Babel)         |
 
+---
+
+## DAY 2: 07.05.2025
+
+### useState
+- useState is a React Hook that lets you add a state variable to your component.
+- Usage:
+    - Adding state to a component
+    - Updating state based on the previous state
+    - Updating objects and arrays in state
+    - Avoiding recreating the initial state
+    - Resetting state with a key
+    - Storing information from previous renders
+
+To import useState from React,
+
+```jsx
+import { useState } from 'react';
+```
+Now we can declare a state variable inside your component as below,
+
+```jsx
+function MyButton() 
+{
+  const [count, setCount] = useState(0);
+  ...
+}
+```
+
+- we'll get two things from useState: the current state (count), and the function that lets you update it (setCount)
+- we can give them any names, but the convention is to write [something, setSomething]
+- The first time the button is displayed, count will be 0 because you passed 0 to useState()
+- When you want to change state, call setCount() and pass the new value to it
+- Clicking this button will increment the counter
+
+```jsx
+function MyButton() 
+{
+    const [count, setCount] = useState(0);
+
+    function handleClick() 
+    {
+        setCount(count + 1);
+    }
+
+    return (
+        <button onClick={handleClick}>
+            Clicked {count} times
+        </button>
+    );
+}
+```
+
+### Reusable Components
+- Reusable components are self-contained building blocks that can be used multiple times in different parts of a React application
+- This improves consistency and maintainability
+- DRY (Don't Repeat Yourself) principle
+- Easier to test and debug
+- Consistent UI/UX
+
+```jsx
+import React from 'react';
+
+function Button({ label, onClick, style }) {
+  return (
+    <button onClick={onClick} style={style}>
+      {label}
+    </button>
+  );
+}
+
+export default Button;
+```
+
+### Passing Data via Props
+- Props (short for **properties**) allow you to pass data from parent to child components
+
+```jsx
+import React from 'react';
+import Button from './Button';
+
+function App() {
+  const handleClick = () => {
+    alert('Button clicked!');
+  };
+
+  return (
+    <div>
+      <h1>Reusable Component Demo</h1>
+      <Button label="Click Me" onClick={handleClick} style={{ padding: '10px', backgroundColor: 'skyblue' }} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+- Props are **read-only**
+- Destructure props directly in the component function parameter for clarity
