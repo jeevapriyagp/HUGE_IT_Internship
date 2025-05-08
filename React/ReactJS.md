@@ -248,3 +248,69 @@ export default App;
 
 - Props are **read-only**
 - Destructure props directly in the component function parameter for clarity
+
+---
+
+## DAY 3: 08.05.2025
+
+### Conditional rendering 
+- In React, there is no special syntax for writing conditions
+- we’ll use the same techniques as you use when writing regular JS code. 
+
+```jsx
+let content;
+if (isLoggedIn) 
+{
+    content = <AdminPanel />;
+} 
+else 
+{
+    content = <LoginForm />;
+}
+
+return (
+    <div>
+        {content}
+    </div>
+);
+```
+We can use the `conditional ?` operator. Unlike if, it works inside JSX,
+
+```jsx
+<div>
+    { isLoggedIn ? (<AdminPanel />) : (<LoginForm />) }
+</div>
+```
+
+When we don’t need the else branch, we can also use a shorter `logical &&` syntax,
+
+```jsx
+<div>
+    {isLoggedIn && <AdminPanel />}
+</div>
+```
+
+### Rendering lists 
+- we have to rely on JavaScript features like for loop and the array map() function to render lists of components
+
+```jsx
+const products = [
+  { title: 'Cabbage', id: 1 },
+  { title: 'Garlic', id: 2 },
+  { title: 'Apple', id: 3 },
+];
+```
+
+Inside React component, we use the map() function to transform an array of products into an array of <li> items,
+
+```jsx
+const listItems = products.map(product =>
+    <li key={product.id}>
+        {product.title}
+    </li>
+);
+
+return (
+    <ul>{listItems}</ul>
+);
+```
