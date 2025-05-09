@@ -1,0 +1,12 @@
+#root 
+{
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 
+{
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #333;
+}
