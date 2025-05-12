@@ -544,3 +544,109 @@ function MyForm()
 }
 ```
 
+---
+
+## DAY 5: 12.05.2025
+
+### useEffect
+- `useEffect` is a React Hook that lets you perform side effects in function components
+- Side effects can include,
+  - Fetching data
+  - Direct DOM manipulation
+  - Setting up a subscription
+  - Timer functions
+
+```js
+import { useEffect } from "react";
+
+useEffect(() => {
+  console.log("Component mounted");
+
+  return () => {
+    console.log("Component unmounted");
+  };
+}, []); 
+
+// empty dependency array = run only on mount
+```
+
+### Basic API Calls
+- Use `fetch()` or libraries like `axios` to call APIs
+
+```js
+import { useEffect, useState } from "react";
+
+function PostList() 
+{
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((data) => setPosts(data))
+      .catch((error) => console.error("Error fetching posts:", error));
+  }, []);
+
+  return (
+    <div>
+      <h2>Posts</h2>
+      <ul>
+        {posts.slice(0, 5).map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default PostList;
+```
+
+### State Lifting (Parent-Child Communication)
+- State is "lifted up" to the closest common ancestor of components that need access to it
+- Helps in sharing data between siblings or handling events from children
+
+```js
+// ParentComponent.jsx
+import { useState } from "react";
+import ChildInput from "./ChildInput";
+import ChildDisplay from "./ChildDisplay";
+
+function ParentComponent() 
+{
+  const [text, setText] = useState("");
+
+  return (
+    <div>
+      <ChildInput onTextChange={setText} />
+      <ChildDisplay value={text} />
+    </div>
+  );
+}
+
+export default ParentComponent;
+
+// ChildInput.jsx
+function ChildInput({ onTextChange }) 
+{
+  return (
+    <input
+      type="text"
+      placeholder="Type something"
+      onChange={(e) => onTextChange(e.target.value)}
+    />
+  );
+}
+
+export default ChildInput;
+
+// ChildDisplay.jsx
+function ChildDisplay({ value }) 
+{
+  return <p>You typed: {value}</p>;
+}
+
+export default ChildDisplay;
+```
+
+

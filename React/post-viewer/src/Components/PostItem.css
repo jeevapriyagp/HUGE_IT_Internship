@@ -1,0 +1,14 @@
+.post-item 
+{
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.post-item h2 
+{
+  margin-bottom: 8px;
+  font-size: 18px;
+}
